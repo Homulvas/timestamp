@@ -6,6 +6,6 @@ app.get('/*', function (req, res) {
   res.send(input)
 })
 
-app.listen(8080, function () {
-  console.log('Server listening on port 8080!')
+app.listen(env.PORT || 8080, function () {
+  console.log('Server listening on port '+env.PORT || 8080+'!')
 })
