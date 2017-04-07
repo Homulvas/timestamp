@@ -11,6 +11,13 @@ app.get('/*', function (req, res) {
         result.unixTimestamp = number;
         result.naturalLanguageDate = timeStampToDate(number)
       }
+    } else {
+      var re = /^[A-Za-z]+\s\d{1,2},\s\d{4}$/
+      var date = Date.parse(input)
+      if (input.match(re) && date) {
+        result.unixTimestamp = date/1000
+        result.naturalLanguageDate = timeStampToDate(date/1000)
+      }
     }
   }
   res.send(result)
